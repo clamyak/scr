@@ -1,0 +1,9 @@
+#!/bin/bash
+N="1000"
+R="100"
+for i in `seq 0 $N`; do
+    eval $(xdotool getmouselocation --shell)
+    x=$(echo "$R*s($i)*c($i/50)+$X" | bc -l)
+    y=$(echo "$R*s($i)*s($i/50)+$Y" | bc -l)
+    xdotool mousemove  $x $y
+done    
